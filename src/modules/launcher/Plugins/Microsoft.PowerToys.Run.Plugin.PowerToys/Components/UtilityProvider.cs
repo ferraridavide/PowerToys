@@ -184,16 +184,19 @@ namespace Microsoft.PowerToys.Run.Plugin.PowerToys
                     }));
             }
 
-            _utilities.Add(new Utility(
-                UtilityKey.Projects,
-                Resources.Projects,
-                generalSettings.Enabled.Projects,
-                (_) =>
-                {
-                    using var eventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, Constants.ProjectsLaunchEditorEvent());
-                    eventHandle.Set();
-                    return true;
-                }));
+            if (GPOWrapper.GetConfiguredProjectsEnabledValue() != GpoRuleConfigured.Disabled)
+            {
+                _utilities.Add(new Utility(
+                    UtilityKey.Projects,
+                    Resources.Projects_Editor,
+                    generalSettings.Enabled.Projects,
+                    (_) =>
+                    {
+                        using var eventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, Constants.ProjectsLaunchEditorEvent());
+                        eventHandle.Set();
+                        return true;
+                    }));
+            }
 
             _watcher = new FileSystemWatcher
             {

@@ -151,11 +151,11 @@ namespace Microsoft.PowerToys.Run.Plugin.PowerToys.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Projects.
+        ///   Looks up a localized string similar to Projects Editor.
         /// </summary>
-        internal static string Projects {
+        internal static string Projects_Editor {
             get {
-                return ResourceManager.GetString("Projects", resourceCulture);
+                return ResourceManager.GetString("Projects_Editor", resourceCulture);
             }
         }
         
