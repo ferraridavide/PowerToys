@@ -10,4 +10,8 @@
     <Compile Include="..\..\Telemetry\TelemetryBase.cs" Link="TelemetryBase.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Diagnostics.Tracing.TraceEvent" />
+  </ItemGroup>
+
 </Project>
